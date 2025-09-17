@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extractor de Texto de Imágenes</title>
+    <title>Extractor de Textos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" href="img/img.png">
@@ -31,7 +31,7 @@
             </section>
             
             <section class="panel">
-                <textarea id="extracted-text" placeholder="El texto extraído aparecerá aquí..." readonly></textarea>
+                <textarea id="extracted-text" placeholder="El texto extraído aparecerá aquí..." style="color: black;" readonly></textarea>
                 <div class="button-group">
                     <button id="copy-btn" class="btn-custom btn-secondary">
                         <i class="fa-solid fa-copy"></i> Copiar
@@ -51,7 +51,7 @@
         <p class="m-0">© 2025 Derechos Reservados</p>
     </footer>
 
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
     <script src="js/script.js"></script>
-
 </body>
 </html>
