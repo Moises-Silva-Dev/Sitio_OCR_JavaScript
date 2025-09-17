@@ -1,6 +1,5 @@
 // Espera a que todo el contenido del HTML esté cargado antes de ejecutar el script
 document.addEventListener('DOMContentLoaded', () => {
-    // --- SELECCIÓN DE ELEMENTOS DEL DOM ---
     const imagePreview = document.getElementById('image-preview');
     const extractedText = document.getElementById('extracted-text');
     const uploadBtn = document.getElementById('upload-btn');
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- LÓGICA PARA CARGAR IMAGEN (HACIENDO CLIC) ---
+    // LÓGICA PARA CARGAR IMAGEN
     fileInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
         handleFile(file);
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadBtn.addEventListener('click', () => fileInput.click());
     imagePreview.addEventListener('click', () => fileInput.click());
     
-    // --- NUEVO: LÓGICA PARA ARRASTRAR Y SOLTAR (DRAG & DROP) ---
+    // LÓGICA PARA ARRASTRAR Y SOLTAR
     imagePreview.addEventListener('dragover', (event) => {
         event.preventDefault(); // ¡Muy importante! Previene el comportamiento por defecto.
         imagePreview.style.borderColor = 'var(--accent-color)'; // Feedback visual
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         handleFile(file);
     });
 
-    // --- NUEVO: LÓGICA PARA PEGAR (CTRL + V) ---
+    // LÓGICA PARA PEGAR (CTRL + V)
     document.addEventListener('paste', (event) => {
         const items = event.clipboardData.items;
         for (let i = 0; i < items.length; i++) {
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- FUNCIÓN PARA EXTRAER TEXTO (Sin cambios) ---
+    // FUNCIÓN PARA EXTRAER TEXTO
     extractBtn.addEventListener('click', () => {
         if (!imagenActual) {
             alert('Por favor, carga una imagen primero.');
@@ -93,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- FUNCIÓN PARA COPIAR TEXTO ---
+    // FUNCIÓN PARA COPIAR TEXTO
     copyBtn.addEventListener('click', () => {
         const texto = extractedText.value;
         if (!texto) {
@@ -112,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- FUNCIÓN PARA LIMPIAR LA INTERFAZ ---
+    // FUNCIÓN PARA LIMPIAR LA INTERFAZ 
     clearBtn.addEventListener('click', () => {
         imagenActual = null;
         imagePreview.innerHTML = placeholderHTML;
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imagePreview.style.borderColor = 'var(--border-color)';
     });
 
-    // --- FUNCIÓN PARA DESCARGAR EL TEXTO ---
+    // FUNCIÓN PARA DESCARGAR EL TEXTO
     downloadBtn.addEventListener('click', () => {
         const texto = extractedText.value;
         if (!texto) {
@@ -138,5 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     });
-
 });
