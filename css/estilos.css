@@ -1,0 +1,153 @@
+/* --- Variables de Color y Estilos Globales --- */
+:root {
+    --bg-color: #a6a6f0; /* Fondo principal azul oscuro */
+    --panel-color: #16213e; /* Fondo de los paneles */
+    --primary-color: #0f3460; /* Color de acento principal */
+    --accent-color: #e94560; /* Color para botones de acción */
+    --text-color: #e0e0e0; /* Color de texto general */
+    --border-color: #0f3460;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Estructura Principal --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.container {
+    display: flex;
+    gap: 2rem; /* Espacio entre los dos paneles */
+    width: 90%;
+    height: 400px;
+    max-width: 1400px;
+    flex-wrap: wrap; /* Permite que los paneles se acomoden en pantallas pequeñas */
+}
+
+.panel {
+    flex: 1; /* Hace que ambos paneles ocupen el mismo espacio */
+    min-width: 300px; /* Ancho mínimo antes de que se apilen */
+    background-color: var(--panel-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+/* --- Panel Izquierdo (Carga de Imagen) --- */
+.image-drop-zone {
+    flex-grow: 1;
+    border: 3px dashed var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    color: #a0a0a0;
+}
+
+.image-drop-zone:hover {
+    background-color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+.image-drop-zone i {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.image-drop-zone:hover i {
+    transform: scale(1.1);
+}
+
+#image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* --- Panel Derecho (Texto Extraído) --- */
+#extracted-text {
+    flex-grow: 1;
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    padding: 1rem;
+    font-size: 1rem;
+    resize: none; /* Evita que el usuario cambie el tamaño */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+}
+
+/* --- Botones --- */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-custom {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px); /* Efecto de "levantarse" */
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #ff6384; /* Un poco más claro al pasar el mouse */
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #1f4a8a;
+}
